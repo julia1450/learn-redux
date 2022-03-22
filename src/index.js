@@ -5,9 +5,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import './exercise';
 
+// react-redux 패키지 install 후에
+// store를 어디서든지 사용하기 위한 provider 추가
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from './modules';
+
+// store 생성
+const store = createStore(rootReducer);
+
+// App을 Provider로 감싼 후 store를 props로 전달
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
