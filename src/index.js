@@ -10,9 +10,10 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from './modules';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 // store 생성
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, composeWithDevTools());
 
 // App을 Provider로 감싼 후 store를 props로 전달
 ReactDOM.render(
